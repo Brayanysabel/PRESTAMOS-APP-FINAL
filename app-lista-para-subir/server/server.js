@@ -123,7 +123,7 @@ db.exec(initSql, async err => {
     const defaultHash = await bcrypt.hash('admin', 10);
     
     db.get("SELECT COUNT(*) as count FROM users", (err, row) => {
-      if (!err && row.count === 0) {
+      if (!err && row.count == 0) {
         const stmt = db.prepare("INSERT INTO users (username, password) VALUES (?, ?)");
         stmt.run("admin", defaultHash);
         stmt.finalize();
