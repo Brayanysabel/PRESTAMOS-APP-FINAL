@@ -27,7 +27,7 @@ const loginLimiter = rateLimit({
 // app.use('/api/login', loginLimiter); // Desactivado temporalmente para pruebas
 
 // Serve static files from the parent directory
-app.use(express.static(path.resolve(__dirname, '../')));
+app.use(express.static(path.resolve(__dirname, '../www')));
 
 const JWT_SECRET = process.env.JWT_SECRET || 'prestamos_super_secret_key_123!';
 
