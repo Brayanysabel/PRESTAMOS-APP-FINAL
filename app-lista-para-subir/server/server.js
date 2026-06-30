@@ -348,7 +348,8 @@ app.delete('/api/clients/:id', (req, res) => {
 // Loans
 app.get('/api/loans', (req, res) => {
   const sql = `
-    SELECT l.*, json_group_array(json_object(
+   SELECT l.*, json_agg(json_build_object(
+
       'idx', i.idx,
       'dueDate', i.dueDate,
       'amount', i.amount,
